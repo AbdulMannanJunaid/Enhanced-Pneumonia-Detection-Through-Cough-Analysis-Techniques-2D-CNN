@@ -1,0 +1,120 @@
+/* Add new styles */
+.bordered-text {
+    border-bottom: 2px solid #004080; /* Dark blue border bottom */
+    padding-bottom: 5px;
+}
+
+.file-input {
+    display: none; /* Hide the file input */
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2E8B57; /* Sea green button background color */
+    color: #FFF; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #32CD32; /* Lime green button background color on hover */
+}
+
+#file-name-display {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Adjust existing styles */
+.form1 {
+    width: 80%; /* Adjusted width */
+    max-width: 500px; /* Added max-width */
+    margin: 30px auto;
+    padding: 20px; /* Increased padding */
+    background-color: rgba(224, 255, 255, 0.8); /* Adjusted background color */
+    text-align: center;
+}
+
+.button {
+    width: 200px; /* Increased width */
+    height: 50px; /* Increased height */
+    margin-top: 30px; /* Adjusted margin */
+}
+
+.button:hover {
+    box-shadow: 3px 3px 10px 4px #228B22; /* Adjusted box shadow on hover */
+}
+
+/* New styles for the file input */
+.file-input-wrapper {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Added styles for the result */
+#result {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 24px;
+    color: #FFF; /* White text color */
+    font-weight: bold; /* Bold text */
+    background-color: #000; /* Solid black background */
+    padding: 10px; /* Added padding for better visibility */
+}
+
+/* Centering the heading */
+.heading {
+    text-align: center;
+    color: #FFF; /* White text color */
+    font-weight: bold; /* Bold font weight */
+}
+
+/* Background image with opacity */
+body {
+    background-image: url('/static/img2.png'); /* Path to your image */
+    background-size: cover; /* Adjusts the background image size to cover the entire viewport */
+    background-position: center; /* Centers the background image */
+    background-color: rgba(255, 255, 255, 0.1); /* White color with 20% opacity */
+}
+
+
+/* Add new styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    bottom: 0; /* Align to bottom */
+    width: 100%; /* Full width */
+    height: 40%; /* Set the height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Set the width */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

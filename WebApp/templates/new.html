@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Pneumonia</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/predict", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var prediction = response.prediction;
+                    var fileName = document.getElementById("file-input").files[0].name; // Get the name of the uploaded file
+                    showModal(prediction, fileName); // Call the function to display modal with the result and file name
+                }
+            };
+            xhr.send(formData);
+        }
+
+        function showModal(prediction, fileName) {
+            var modal = document.getElementById("myModal");
+            var modalContent = document.getElementById("modalContent");
+            modal.style.display = "block";
+            modalContent.innerText = "File Name: " + fileName + "\nPrediction: " + prediction; // Display file name and prediction
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <h2 class="heading"><span class="bordered-text">Pneumonia Detection Using Deep Learning</span></h2>
+
+    <div class="form1">
+        <form id="uploadForm" enctype="multipart/form-data" onsubmit="submitForm(event);">
+            <h2 class="sub-heading">Upload Cough Audio Clip</h2>
+            <div class="file-input-wrapper">
+                <input class="file-input" type="file" name="audio" accept=".wav, .mp3, .ogg" id="file-input">
+                <label for="file-input" class="file-label">Choose File</label>
+            </div>
+            <button class="button" type="submit">Upload</button>
+        </form>
+        <p id="file-name-display"></p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</body>
+</html>
